@@ -1,9 +1,4 @@
-# Exercise 4: Documentation
+# Exercise 4: Authentication
 
-Starting with the code in /exercise4, add documentation for the Users API and
-browser it to verify.
+Add HTTP Basic authentication to the API
 
-
-## Things to note:
-
-* This can be done entirely via Apigility's admin
