@@ -22,6 +22,7 @@ return array(
         'ZF\\Rest',
         'ZF\\Rpc',
         'ZF\\Versioning',
+        'XTilDone',
         'Todo'
     ),
     'module_listener_options' => array(
