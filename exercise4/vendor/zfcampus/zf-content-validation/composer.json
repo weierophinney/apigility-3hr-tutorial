@@ -1,0 +1,55 @@
+{
+    "name": "zfcampus/zf-content-validation",
+    "description": "ZF2 Module providing incoming content validation",
+    "type": "library",
+    "license": "BSD-3-Clause",
+    "keywords": [
+        "zf2",
+        "zend",
+        "module",
+        "validation"
+    ],
+    "homepage": "http://apigility.org/",
+    "support": {
+        "email": "apigility-users@zend.com",
+        "irc": "irc://irc.freenode.net/apigility",
+        "source": "https://github.com/zfcampus/zf-content-validation",
+        "issues": "https://github.com/zfcampus/zf-content-validation/issues"
+    },
+    "repositories": [
+        { "type": "composer", "url": "https://packages.zendframework.com" }
+    ],
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev",
+            "dev-develop": "1.1-dev"
+        }
+    },
+    "require": {
+        "php": ">=5.3.23",
+        "zendframework/zend-eventmanager": "~2.3",
+        "zendframework/zend-filter": "~2.3",
+        "zendframework/zend-http": "~2.3",
+        "zendframework/zend-inputfilter": "~2.3",
+        "zendframework/zend-mvc": "~2.3",
+        "zendframework/zend-servicemanager": "~2.3",
+        "zendframework/zend-stdlib": "~2.3",
+        "zendframework/zend-validator": "~2.3",
+        "zfcampus/zf-api-problem": "~1.0",
+        "zfcampus/zf-content-negotiation": "~1.0"
+    },
+    "require-dev": {
+        "fabpot/php-cs-fixer": "*@dev",
+        "phpunit/phpunit": ">=3.7.0",
+        "zendframework/zend-loader": "~2.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "ZF\\ContentValidation\\": "src/",
+            "ZFTest\\ContentValidation\\": "test/"
+        },
+        "classmap": [
+            "Module.php"
+        ]
+    }
+}

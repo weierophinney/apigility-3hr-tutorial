@@ -1,0 +1,45 @@
+@white: #FFFFFF;
+@agBlue: #0c0c56;
+@agLightBlue: #4B70A2;
+@agGreen: #004000;
+
+
+.ag-welcome-home {
+  background: @agBlue;
+  color: #fff;
+}
+
+.ag-welcome {
+    .jumbotron {
+        background-color: @white;
+        border: 1px solid @agLightBlue;
+        margin-top: 1em;
+        text-align: center;
+
+        img.hero {
+            padding-bottom: 2em;
+        }
+
+        p.lead {
+            color: @agBlue;
+        }
+    }
+
+    .panel-default {
+        border: none;
+    }
+
+    .ag-masthead-buttons {
+        text-align: center;
+    }
+}
+
+.ag-welcome-btn-outline {
+  color: rgb(255, 255, 255);
+  background-color: @agBlue;
+  border-color: rgb(205, 191, 227);
+  &:hover, &:focus, &:active {
+    color: @agGreen;
+    background-color: @agLightBlue;
+  }
+}

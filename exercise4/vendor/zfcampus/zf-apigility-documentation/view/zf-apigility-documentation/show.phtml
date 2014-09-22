@@ -1,0 +1,10 @@
+<?php
+if ($this->type === 'apiList') {
+    echo $this->render('zf-apigility-documentation/api-list', $this->vars());
+}
+if ($this->type === 'api') {
+    echo $this->render('zf-apigility-documentation/api', array('api' => $this->documentation));
+}
+if ($this->type === 'service') {
+    echo $this->render('zf-apigility-documentation/service', array('service' => $this->documentation));
+}

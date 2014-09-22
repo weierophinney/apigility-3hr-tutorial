@@ -1,0 +1,47 @@
+<?php $this->headLink()->appendStylesheet($this->basePath('/zf-apigility-welcome/css/main.min.css')); ?>
+<main class="ag-welcome" role="main">
+    <div class="jumbotron">
+        <img class="hero" src="<?php echo $this->basePath('/zf-apigility-welcome/img/ag-hero.png') ?>">
+
+        <p class="lead">
+            Apigility is an API Builder, designed to simplify creating
+            and maintaining useful, easy to consume, and well-structured APIs.
+        </p>
+    </div>
+
+    <div class="panel panel-default">
+        <?php if (!class_exists('ZF\Apigility\Admin\Module', false)): ?>
+        <p>
+            It is important you have your application in development mode.  The easiest way to
+            accomplish this is by running:
+        </p>
+
+        <pre>
+php public/index.php development enable
+        </pre>
+
+        <p>
+            This will copy <code>config/development.config.php.dist</code> to
+            <code>config/development.config.php</code> This file is marked in 
+            <code>.gitignore</code>, so when you're ready to move this app to 
+            production, the administration features will not be available on 
+            the production server.  Once you have done this, you will see a
+            button below to take you to the Apigility admin screen.
+        </p>
+        <?php endif; ?>
+
+        <p class="ag-masthead-buttons">
+            <?php if (class_exists('ZF\Apigility\Admin\Module', false)): ?>
+            <a href="<?php echo $this->url('zf-apigility/ui') ?>" class="btn btn-lg ag-welcome-btn-outline">Get Started!</a>
+            <?php endif; ?>
+
+            <?php if (class_exists('ZF\Apigility\Documentation\Module', false)): ?>
+            <a href="<?php echo $this->url('zf-apigility/documentation') ?>" class="btn btn-lg ag-welcome-btn-outline">API Documentation</a>
+            <?php endif; ?>
+
+            <?php if (class_exists('ZF\Apigility\Documentation\Swagger\Module', false)): ?>
+            <a href="<?php echo $this->url('zf-apigility/swagger') ?>" class="btn btn-lg ag-welcome-btn-outline">Swagger API Documentation</a>
+            <?php endif; ?>
+        </p>
+    </div>
+</main>
