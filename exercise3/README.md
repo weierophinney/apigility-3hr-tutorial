@@ -1,9 +1,10 @@
-# Exercise 2: Users
+# Exercise 3: Validation & filtering
 
-Starting with the code in /exercise2, add a RESTful API on the endpoint /users
-that allows listing, creating and editing of a user.
+Starting with the code in /exercise3, add username, password and name to the User API.
+
 
 ## Things to note:
 
-* ``XTilDone\Users\MapperInterface`` is useful
-* Inject ``XTilDone\Users\TableGatewayMapper`` via a ``UserResourceFactory`` class
+* All fields are required.
+* Username is an email addres
+* Password is a minimum of 8 characters
