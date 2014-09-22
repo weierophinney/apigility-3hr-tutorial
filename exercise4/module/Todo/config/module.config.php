@@ -118,4 +118,82 @@ return array(
             ),
         ),
     ),
+    'zf-content-validation' => array(
+        'Todo\\V1\\Rest\\Users\\Controller' => array(
+            'input_filter' => 'Todo\\V1\\Rest\\Users\\Validator',
+        ),
+    ),
+    'input_filter_specs' => array(
+        'Todo\\V1\\Rest\\Users\\Validator' => array(
+            0 => array(
+                'name' => 'username',
+                'required' => true,
+                'filters' => array(),
+                'validators' => array(
+                    0 => array(
+                        'name' => 'Zend\\Validator\\EmailAddress',
+                        'options' => array(),
+                    ),
+                    1 => array(
+                        'name' => 'Zend\\Validator\\StringLength',
+                        'options' => array(
+                            'max' => '255',
+                        ),
+                    ),
+                ),
+                'description' => 'Username (their email address)',
+                'error_message' => 'Please provide a valid email address to use as the username.',
+                'allow_empty' => false,
+                'continue_if_empty' => false,
+            ),
+            1 => array(
+                'name' => 'password',
+                'required' => true,
+                'filters' => array(
+                    0 => array(
+                        'name' => 'Zend\\Filter\\StringTrim',
+                        'options' => array(),
+                    ),
+                ),
+                'validators' => array(
+                    0 => array(
+                        'name' => 'Zend\\Validator\\StringLength',
+                        'options' => array(
+                            'min' => '8',
+                        ),
+                    ),
+                ),
+                'description' => 'Password to use for this user.',
+                'error_message' => 'Please provide a valid password of at least 8 characters in length.',
+                'allow_empty' => false,
+                'continue_if_empty' => false,
+            ),
+            2 => array(
+                'name' => 'name',
+                'required' => true,
+                'filters' => array(
+                    0 => array(
+                        'name' => 'Zend\\Filter\\StripTags',
+                        'options' => array(),
+                    ),
+                    1 => array(
+                        'name' => 'Zend\\Filter\\StringTrim',
+                        'options' => array(),
+                    ),
+                ),
+                'validators' => array(
+                    0 => array(
+                        'name' => 'Zend\\Validator\\StringLength',
+                        'options' => array(
+                            'max' => '255',
+                        ),
+                    ),
+                ),
+                'description' => 'The user\'s full name.',
+                'error_message' => 'Please provide the user\'s name.',
+                'allow_empty' => false,
+                'continue_if_empty' => false,
+            ),
+        ),
+    ),
 );
