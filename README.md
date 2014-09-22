@@ -22,5 +22,5 @@ This is the tutorial codebase for a half-day Apigility tutorial.
 5. Exercise 4 (10 mins)
 6. Authentication in Apigility (10 mins)
 7. Exercise 5 (20 mins)
-8. Quick walktrhough of exercise 5 (5 mins)
+8. Quick walkthrough of exercise 5 (5 mins)
 9. Wrap up (5 mins)
