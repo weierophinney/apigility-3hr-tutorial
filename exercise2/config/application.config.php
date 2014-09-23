@@ -22,6 +22,7 @@ return array(
         'ZF\\Rest',
         'ZF\\Rpc',
         'ZF\\Versioning',
+        'Bibliotheque',
         'Ping'
     ),
     'module_listener_options' => array(
