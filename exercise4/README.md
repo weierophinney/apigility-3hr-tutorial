@@ -16,4 +16,6 @@ user's borrowed books.
     * The grant_type is "password"
     * The client_id is "bookshelfapp"
     * The client_secret is blank as we are using password grant type.
-* The resource has a `getIdentity()` method.
+* The resource has a `getIdentity()` method - you can check it's type to see
+  if the user is logged in.
+* The identity has a getName() method too.

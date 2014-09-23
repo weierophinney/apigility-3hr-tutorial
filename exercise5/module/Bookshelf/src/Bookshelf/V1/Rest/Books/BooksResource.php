@@ -3,6 +3,8 @@ namespace Bookshelf\V1\Rest\Books;
 
 use ZF\ApiProblem\ApiProblem;
 use ZF\Rest\AbstractResourceListener;
+use ZF\MvcAuth\Identity\GuestIdentity;
+use ZF\MvcAuth\Identity\AuthenticatedIdentity;
 
 class BooksResource extends AbstractResourceListener
 {
@@ -67,6 +69,12 @@ class BooksResource extends AbstractResourceListener
      */
     public function fetchAll($params = array())
     {
+        // Example of how to get the user information
+        if ($this->getIdentity() instanceof AuthenticatedIdentity) {
+            $user = $this->getIdentity()->getAuthenticationIdentity();
+            $userId = $user['user_id'];
+        }
+
         return $this->mapper->fetchAll();
     }
 
