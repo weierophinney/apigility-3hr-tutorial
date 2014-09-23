@@ -1,11 +1,10 @@
-# Exercise 1: Build a ping API
+# Exercise 2: Books service
 
-Starting with the code in /exercise1, create a RPC ping service. Prove that it
-works using curl.
+Starting with the code in /exercise2, add a RESTful API on the endpoint /books
+that lists all the books.
 
-## Things to note
+## Things to note:
 
-* Turn on development mode
-* Run the built-in webserver:
-
-        php -S 0.0.0.0:8888 public/index.php
+* Inject `XTilDone\Lists\TableGatewayMapper` into the `ListsResource` class
+  (via local factory classes & the `ListsResourceFactory`)
+* Helpful code in `exercise2/_exercise_files`
