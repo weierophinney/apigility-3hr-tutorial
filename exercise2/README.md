@@ -1,10 +1,12 @@
 # Exercise 2: Books service
 
-Starting with the code in /exercise2, add an API called Library and a RESTful
-service on the endpoint /books that lists all the books.
+Starting with the code in /exercise2, add an API called Bookshelf and a RESTful
+service on the endpoint /books that can list all books, list a single book and
+create a new book.
+
+Bonus points for updating and deleting a book.
 
 ## Things to note:
 
-* Inject `XTilDone\Lists\TableGatewayMapper` into the `ListsResource` class
-  (via local factory classes & the `ListsResourceFactory`)
-* Helpful code in `exercise2/_exercise_files`
+* Your Entity is `Bibliotheque\Book\BookEntity` & Collection is `Bibliotheque\Book\BookCollection`
+* Inject `Bibliotheque\Book\BookMapper` into the `BooksResource` class (via the `UserResourceFactory`)
