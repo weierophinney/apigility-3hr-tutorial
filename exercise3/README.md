@@ -1,10 +1,19 @@
-# Exercise 2: Books service
+# Exercise 3: Validation
 
-Starting with the code in /exercise2, add a REST service called Books to the
-Bookshelf API on the endpoint /books that lists all the books.
+Starting with the code in /exercise3, add fields to the Users and Books
+REST services.
 
-## Things to note:
+Bonus points for documenting them too!
 
-* Inject `XTilDone\Lists\TableGatewayMapper` into the `ListsResource` class
-  (via local factory classes & the `ListsResourceFactory`)
-* Helpful code in `exercise2/_exercise_files`
+
+## Validation rules
+
+* All fields are required.
+* User fields:
+    * Username is an email address with a maximum of 255 characters
+    * Password is a minimum of 8 characters
+    * Name has a maximum of 255 characters
+* Book fields:
+    * Title has a maximum of 255 characters
+    * Author has a maximum of 255 characters and may not contain HTML
+    * isbn is a 13 character ISBN
