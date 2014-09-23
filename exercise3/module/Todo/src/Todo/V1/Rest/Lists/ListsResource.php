@@ -54,7 +54,7 @@ class ListsResource extends AbstractResourceListener
      */
     public function fetch($id)
     {
-        return $this->mapper->fetch(null, $id);
+        return $this->mapper->fetch($id);
     }
 
     /**
