@@ -6,6 +6,7 @@ use DomainException;
 use Rhumsaa\Uuid\Uuid;
 use Zend\Db\TableGateway\TableGatewayInterface;
 use Zend\Paginator\Adapter\DbTableGateway as DbTableGatewayPaginator;
+use Zend\Paginator\Adapter\DbSelect as DbSelectPaginator;
 
 class BookMapper implements BookMapperInterface
 {
@@ -70,5 +71,23 @@ class BookMapper implements BookMapperInterface
     {
         $this->tasks->delete(array('book_id' => $bookId));
         return true;
+    }
+
+    public function fetchBorrowed($userId)
+    {
+        $sql       = $this->table->getSql();
+        $table     = $this->table->getTable();
+        $joinTable = 'user_book';
+
+        $select = $sql->select();
+        $select->join($joinTable, "$table.book_id = $joinTable.book_id", array());
+        $select->where(array("$joinTable.user_id" => $userId));
+        $select->order(array('author', 'title'));
+
+        return new $this->collectionClass(new DbSelectPaginator(
+            $select,
+            $sql,
+            $this->table->getResultSetPrototype()
+        ));
     }
 }

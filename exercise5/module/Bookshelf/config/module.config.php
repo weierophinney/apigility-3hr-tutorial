@@ -20,18 +20,29 @@ return array(
                     ),
                 ),
             ),
+            'bookshelf.rest.borrowed' => array(
+                'type' => 'Segment',
+                'options' => array(
+                    'route' => '/books/borrowed[/:borrowed_id]',
+                    'defaults' => array(
+                        'controller' => 'Bookshelf\\V1\\Rest\\Borrowed\\Controller',
+                    ),
+                ),
+            ),
         ),
     ),
     'zf-versioning' => array(
         'uri' => array(
             0 => 'bookshelf.rest.users',
             1 => 'bookshelf.rest.books',
+            2 => 'bookshelf.rest.borrowed',
         ),
     ),
     'service_manager' => array(
         'factories' => array(
             'Bookshelf\\V1\\Rest\\Users\\UsersResource' => 'Bookshelf\\V1\\Rest\\Users\\UsersResourceFactory',
             'Bookshelf\\V1\\Rest\\Books\\BooksResource' => 'Bookshelf\\V1\\Rest\\Books\\BooksResourceFactory',
+            'Bookshelf\\V1\\Rest\\Borrowed\\BorrowedResource' => 'Bookshelf\\V1\\Rest\\Borrowed\\BorrowedResourceFactory',
         ),
     ),
     'zf-rest' => array(
@@ -79,11 +90,31 @@ return array(
             'collection_class' => 'Bibliotheque\\Book\\BookCollection',
             'service_name' => 'Books',
         ),
+        'Bookshelf\\V1\\Rest\\Borrowed\\Controller' => array(
+            'listener' => 'Bookshelf\\V1\\Rest\\Borrowed\\BorrowedResource',
+            'route_name' => 'bookshelf.rest.borrowed',
+            'route_identifier_name' => 'borrowed_id',
+            'collection_name' => 'borrowed',
+            'entity_http_methods' => array(
+                0 => 'DELETE',
+            ),
+            'collection_http_methods' => array(
+                0 => 'GET',
+                1 => 'POST',
+            ),
+            'collection_query_whitelist' => array(),
+            'page_size' => 25,
+            'page_size_param' => null,
+            'entity_class' => 'Bibliotheque\\Book\\BookEntity',
+            'collection_class' => 'Bibliotheque\\Book\\BookCollection',
+            'service_name' => 'Borrowed',
+        ),
     ),
     'zf-content-negotiation' => array(
         'controllers' => array(
             'Bookshelf\\V1\\Rest\\Users\\Controller' => 'HalJson',
             'Bookshelf\\V1\\Rest\\Books\\Controller' => 'HalJson',
+            'Bookshelf\\V1\\Rest\\Borrowed\\Controller' => 'HalJson',
         ),
         'accept_whitelist' => array(
             'Bookshelf\\V1\\Rest\\Users\\Controller' => array(
@@ -96,6 +127,11 @@ return array(
                 1 => 'application/hal+json',
                 2 => 'application/json',
             ),
+            'Bookshelf\\V1\\Rest\\Borrowed\\Controller' => array(
+                0 => 'application/vnd.bookshelf.v1+json',
+                1 => 'application/hal+json',
+                2 => 'application/json',
+            ),
         ),
         'content_type_whitelist' => array(
             'Bookshelf\\V1\\Rest\\Users\\Controller' => array(
@@ -103,6 +139,10 @@ return array(
                 1 => 'application/json',
             ),
             'Bookshelf\\V1\\Rest\\Books\\Controller' => array(
+                0 => 'application/vnd.bookshelf.v1+json',
+                1 => 'application/json',
+            ),
+            'Bookshelf\\V1\\Rest\\Borrowed\\Controller' => array(
                 0 => 'application/vnd.bookshelf.v1+json',
                 1 => 'application/json',
             ),
@@ -156,6 +196,18 @@ return array(
                 'entity_identifier_name' => 'book_id',
                 'route_name' => 'bookshelf.rest.books',
                 'route_identifier_name' => 'books_id',
+                'is_collection' => true,
+            ),
+            'Bookshelf\\V1\\Rest\\Borrowed\\BorrowedEntity' => array(
+                'entity_identifier_name' => 'id',
+                'route_name' => 'bookshelf.rest.borrowed',
+                'route_identifier_name' => 'borrowed_id',
+                'hydrator' => 'Zend\\Stdlib\\Hydrator\\ArraySerializable',
+            ),
+            'Bookshelf\\V1\\Rest\\Borrowed\\BorrowedCollection' => array(
+                'entity_identifier_name' => 'id',
+                'route_name' => 'bookshelf.rest.borrowed',
+                'route_identifier_name' => 'borrowed_id',
                 'is_collection' => true,
             ),
         ),
@@ -313,6 +365,22 @@ return array(
                 ),
                 'collection' => array(
                     'GET' => false,
+                    'POST' => true,
+                    'PATCH' => false,
+                    'PUT' => false,
+                    'DELETE' => false,
+                ),
+            ),
+            'Bookshelf\\V1\\Rest\\Borrowed\\Controller' => array(
+                'entity' => array(
+                    'GET' => false,
+                    'POST' => false,
+                    'PATCH' => false,
+                    'PUT' => false,
+                    'DELETE' => true,
+                ),
+                'collection' => array(
+                    'GET' => true,
                     'POST' => true,
                     'PATCH' => false,
                     'PUT' => false,
