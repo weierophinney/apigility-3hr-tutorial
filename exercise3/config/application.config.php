@@ -32,7 +32,7 @@ return array(
             './vendor'
         ),
         'config_glob_paths' => array(
-            '/www/apigility/apigility-3hr-tutorial/exercise3/config/autoload/{,*.}{global,local}.php'
+            realpath(__DIR__) . '/autoload/{,*.}{global,local}.php'
         ),
         'config_cache_key' => 'application.config.cache',
         'config_cache_enabled' => true,
