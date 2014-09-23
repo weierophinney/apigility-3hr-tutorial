@@ -1,0 +1,63 @@
+{
+    "name": "zfcampus/zf-rest",
+    "description": "ZF2 Module providing structure for RESTful resources",
+    "type": "library",
+    "license": "BSD-3-Clause",
+    "keywords": [
+        "zf2",
+        "zend",
+        "module",
+        "rest"
+    ],
+    "homepage": "http://apigility.org/",
+    "support": {
+        "email": "apigility-users@zend.com",
+        "irc": "irc://irc.freenode.net/apigility",
+        "source": "https://github.com/zfcampus/zf-rest",
+        "issues": "https://github.com/zfcampus/zf-rest/issues"
+    },
+    "repositories": [
+        { "type": "composer", "url": "https://packages.zendframework.com" }
+    ],
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev",
+            "dev-develop": "1.1-dev"
+        }
+    },
+    "require": {
+        "php": ">=5.3.23",
+        "zendframework/zend-eventmanager": "~2.3",
+        "zendframework/zend-json": "~2.3",
+        "zendframework/zend-loader": "~2.3",
+        "zendframework/zend-mvc": "~2.3",
+        "zendframework/zend-paginator": "~2.3",
+        "zendframework/zend-stdlib": "~2.3",
+        "zfcampus/zf-api-problem": "~1.0",
+        "zfcampus/zf-content-negotiation": "~1.0",
+        "zfcampus/zf-hal": ">=1.0.2,<2.0.0",
+        "zfcampus/zf-mvc-auth": "~1.0",
+        "zfcampus/zf-oauth2": "~1.0"
+    },
+    "require-dev": {
+        "fabpot/php-cs-fixer": "*@dev",
+        "phpunit/PHPUnit": "3.7.*",
+        "zendframework/zend-console": "~2.3",
+        "zendframework/zend-escaper": "~2.3",
+        "zendframework/zend-http": "~2.3",
+        "zendframework/zend-inputfilter": "~2.3",
+        "zendframework/zend-servicemanager": "~2.3",
+        "zendframework/zend-uri": "~2.3",
+        "zendframework/zend-validator": "~2.3",
+        "zendframework/zend-view": "~2.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "ZF\\Rest\\": "src/",
+            "ZFTest\\Rest\\": "test/"
+        },
+        "classmap": [
+            "Module.php"
+        ]
+    }
+}
