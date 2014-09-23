@@ -1,0 +1,43 @@
+{
+    "name": "zfcampus/zf-apigility-provider",
+    "description": "Apigility interfaces",
+    "type": "library",
+    "license": "BSD-3-Clause",
+    "keywords": [
+        "api",
+        "apigility",
+        "framework",
+        "zf2"
+    ],
+    "homepage": "http://apigility.org/",
+    "support": {
+        "email": "apigility-users@zend.com",
+        "irc": "irc://irc.freenode.net/apigility",
+        "source": "https://github.com/zfcampus/zf-apigility",
+        "issues": "https://github.com/zfcampus/zf-apigility/issues"
+    },
+    "repositories": [
+        { "type": "composer", "url": "https://packages.zendframework.com/" }
+    ],
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev",
+            "dev-develop": "1.1-dev"
+        }
+    },
+    "require": {
+        "php": ">=5.3.23"
+    },
+    "require-dev": {
+        "fabpot/php-cs-fixer": "*@dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "ZF\\Apigility\\Provider\\": "src/",
+            "ZFTest\\Apigility\\Provider\\": "test/"
+        },
+        "classmap": [
+            "Module.php"
+        ]
+    }
+}
