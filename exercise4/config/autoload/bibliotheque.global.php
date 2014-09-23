@@ -16,4 +16,16 @@ return array(
             'Bibliotheque\Book\BookMapper' => 'Bibliotheque\Book\BookMapperFactory',
         ),
     ),
+    'zf-oauth2' => array(
+        'storage' => 'ZF\\OAuth2\\Adapter\\PdoAdapter',
+        'db' => array(
+            'dsn_type' => 'PDO',
+            'dsn' => 'sqlite:' . realpath(getcwd() . '/data/bookshelf.db'),
+            'username' => null,
+            'password' => null,
+        ),
+        'storage_settings' => array(
+            'user_table' => 'user',
+        ),
+    ),
 );
