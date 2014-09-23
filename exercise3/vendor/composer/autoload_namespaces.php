@@ -19,6 +19,8 @@ return array(
     'JsonSchema' => array($vendorDir . '/justinrainbow/json-schema/src'),
     'Herrera\\Phar\\Update' => array($vendorDir . '/herrera-io/phar-update/src/lib'),
     'Herrera\\Json' => array($vendorDir . '/herrera-io/json/src/lib'),
+    'Faker\\PHPUnit' => array($vendorDir . '/fzaninotto/faker/test'),
+    'Faker' => array($vendorDir . '/fzaninotto/faker/src'),
     'Assetic' => array($vendorDir . '/kriswallsmith/assetic/src'),
     'AssetManager' => array($vendorDir . '/rwoverdijk/assetmanager/src'),
 );

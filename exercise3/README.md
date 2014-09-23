@@ -1,7 +1,7 @@
 # Exercise 2: Books service
 
-Starting with the code in /exercise2, add an API called Library and a RESTful
-service on the endpoint /books that lists all the books.
+Starting with the code in /exercise2, add a REST service called Books to the
+Bookshelf API on the endpoint /books that lists all the books.
 
 ## Things to note:
 
