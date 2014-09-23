@@ -6,6 +6,16 @@ REST services.
 Bonus points for documenting them too!
 
 
+## Things to note
+
+* Note that the $data passed into a method in the resource is unfiltered.
+  Therefore, once validation & filtering is in place, you can access the
+  filtered data in your resource using:
+
+        $inputFilter = $this->getInputFilter();
+        $data        = $this->getValues();
+
+
 ## Validation rules
 
 * All fields are required.
