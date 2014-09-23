@@ -18,6 +18,7 @@ return array(
     ),
     'zf-oauth2' => array(
         'storage' => 'ZF\\OAuth2\\Adapter\\PdoAdapter',
+        'access_lifetime' => 7200,
         'db' => array(
             'dsn_type' => 'PDO',
             'dsn' => 'sqlite:' . realpath(getcwd() . '/data/bookshelf.db'),
