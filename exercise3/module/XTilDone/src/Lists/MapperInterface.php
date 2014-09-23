@@ -4,19 +4,13 @@ namespace XTilDone\Lists;
 
 interface MapperInterface
 {
-    public function create($userId, $title);
+    public function create($title);
 
-    public function delete($userId, $listId);
+    public function delete($listId);
 
-    public function fetch($userId, $listId);
+    public function fetch($listId);
 
-    public function fetchAll($userId);
+    public function fetchAll();
 
-    public function update($userId, $listId, $title);
-
-    public function isOwner($userId, $listId);
-
-    public function canReadList($userId, $listId);
-
-    public function canModifyList($userId, $listId);
+    public function update($listId, $title);
 }

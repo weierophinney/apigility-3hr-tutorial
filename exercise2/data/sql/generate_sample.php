@@ -3,8 +3,8 @@ include __DIR__ . '/../../vendor/autoload.php';
 
 $faker = Faker\Factory::create();
 
-const NUMBER_OF_USERS = 5;
-const NUMBER_OF_LISTS = 10;
+const NUMBER_OF_USERS = 25;
+const NUMBER_OF_LISTS = 55;
 const NUMBER_OF_TASKS_PER_LIST = 15;
 
 // users
@@ -25,6 +25,10 @@ for ($i = 0; $i < NUMBER_OF_LISTS; $i++) {
     $name = $faker->firstName . ' ' . $faker->lastName;
     $list['list_id'] = $faker->uuid;
     $list['title'] = ucwords(implode(' ', $faker->words));
+
+    $offset = mt_rand(1, 30);
+    $period = mt_rand(0, 1) ? 'weeks' : 'days';
+    $list['created'] = date('U', strtotime("-$offset $period"));
 
     $lists[] = $list;
 }
@@ -81,37 +85,33 @@ foreach ($lists as $i => $list) {
 
 // generate SQL
 $sql = "DELETE FROM 'user';\n\n";
-$sql .= "INSERT INTO 'user' ('user_id', 'username', 'password', 'name') VALUES\n";
 foreach ($users as $user) {
-    $sql .= "    ('{$user['user_id']}', '{$user['username']}', '{$user['password']}', '{$user['name']}'),\n";
+    $sql .= "INSERT INTO 'user' ('user_id', 'username', 'password', 'name') VALUES\n";
+    $sql .= "    ('{$user['user_id']}', '{$user['username']}', '{$user['password']}', '{$user['name']}');\n";
 }
-$sql = substr($sql, 0, -2);
-$sql .= ";\n\n";
+$sql .= "\n\n";
 
 $sql .= "DELETE FROM 'list';\n\n";
-$sql .= "INSERT INTO 'list' ('list_id', 'title') VALUES\n";
 foreach ($lists as $list) {
-    $sql .= "    ('{$list['list_id']}', '{$list['title']}'),\n";
+    $sql .= "INSERT INTO 'list' ('list_id', 'title', 'created') VALUES\n";
+    $sql .= "    ('{$list['list_id']}', '{$list['title']}', '{$list['created']}');\n";
 }
-$sql = substr($sql, 0, -2);
-$sql .= ";\n\n";
+$sql .= "\n\n";
 
 $sql .= "DELETE FROM 'task';\n\n";
-$sql .= "INSERT INTO 'task' ('task_id', 'list_id', 'name', 'completed') VALUES\n";
 foreach ($tasks as $task) {
-    $sql .= "    ('{$task['task_id']}', '{$task['list_id']}', '{$task['name']}', '{$task['completed']}'),\n";
+    $sql .= "INSERT INTO 'task' ('task_id', 'list_id', 'name', 'completed') VALUES\n";
+    $sql .= "    ('{$task['task_id']}', '{$task['list_id']}', '{$task['name']}', '{$task['completed']}');\n";
 }
-$sql = substr($sql, 0, -2);
-$sql .= ";\n\n";
+$sql .= "\n\n";
 
 
 $sql .= "DELETE FROM 'user_list';\n\n";
-$sql .= "INSERT INTO 'user_list' ('user_id', 'list_id', 'is_owner', 'can_read', 'can_write') VALUES\n";
 foreach ($links as $link) {
-    $sql .= "    ('{$link['user_id']}', '{$link['list_id']}', '{$link['is_owner']}', '{$link['can_read']}', '{$link['can_write']}'),\n";
+    $sql .= "INSERT INTO 'user_list' ('user_id', 'list_id', 'is_owner', 'can_read', 'can_write') VALUES\n";
+    $sql .= "    ('{$link['user_id']}', '{$link['list_id']}', '{$link['is_owner']}', '{$link['can_read']}', '{$link['can_write']}');\n";
 }
-$sql = substr($sql, 0, -2);
-$sql .= ";\n\n";
+$sql .= "\n\n";
 
 
 echo $sql;

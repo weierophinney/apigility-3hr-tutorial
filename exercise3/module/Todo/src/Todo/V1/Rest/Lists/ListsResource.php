@@ -1,10 +1,10 @@
 <?php
-namespace Todo\V1\Rest\Users;
+namespace Todo\V1\Rest\Lists;
 
 use ZF\ApiProblem\ApiProblem;
 use ZF\Rest\AbstractResourceListener;
 
-class UsersResource extends AbstractResourceListener
+class ListsResource extends AbstractResourceListener
 {
     protected $mapper;
 
@@ -21,8 +21,7 @@ class UsersResource extends AbstractResourceListener
      */
     public function create($data)
     {
-        $data = (array) $data;
-        return $this->mapper->create($data['username'], $data['password'], $data['name']);
+        return new ApiProblem(405, 'The POST method has not been defined');
     }
 
     /**
@@ -55,7 +54,7 @@ class UsersResource extends AbstractResourceListener
      */
     public function fetch($id)
     {
-        return $this->mapper->fetch($id);
+        return $this->mapper->fetch(null, $id);
     }
 
     /**
