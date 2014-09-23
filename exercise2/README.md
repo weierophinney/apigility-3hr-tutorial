@@ -1,10 +1,14 @@
-# Exercise 2: Lists
+# Exercise 2: Books service
 
-Starting with the code in /exercise2, add a RESTful API on the endpoint /lists
-that shows all the available todo lists.
+Starting with the code in /exercise2, add an API called Bookshelf containing a REST
+service on the endpoint /books that can list all books & a single book.
+
+Bonus points for creating, updating & deleting a book.
 
 ## Things to note:
 
-* Inject `XTilDone\Lists\TableGatewayMapper` into the `ListsResource` class
-  (via local factory classes & the `ListsResourceFactory`)
-* Helpful code in `exercise2/_exercise_files`
+* The Entity Identifier Name for is user_id.
+* The Entity is `Bibliotheque\Book\BookEntity`
+* The Collection is `Bibliotheque\Book\BookCollection`.
+* Inject `Bibliotheque\Book\BookMapper` into the `BooksResource` class (via the `UserResourceFactory`).
+* The `Bibliotheque\Book\BookMapperInterface` shows you what you can do with the mapper.

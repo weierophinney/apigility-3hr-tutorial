@@ -10,8 +10,8 @@ This is the tutorial codebase for a half-day Apigility tutorial.
 1. Welcome and demo of ping service (15 mins)
 2. Exercise 1: Ping (15 mins)
 3. Why Apigility (30 mins)
-4. Introduce worked example & demo creation of Users (10 mins)
-5. Exercise 2: Lists (20 mins)
+4. Introduce worked example & demo creation of Users service (10 mins)
+5. Exercise 2: Books (20 mins)
 
 *Session 2*
 

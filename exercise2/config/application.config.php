@@ -22,8 +22,8 @@ return array(
         'ZF\\Rest',
         'ZF\\Rpc',
         'ZF\\Versioning',
-        'XTilDone',
-        'Todo'
+        'Bibliotheque',
+        'Ping'
     ),
     'module_listener_options' => array(
         'module_paths' => array(
@@ -31,7 +31,7 @@ return array(
             './vendor'
         ),
         'config_glob_paths' => array(
-            '/www/apigility/apigility-3hr-tutorial/exercise2/config/autoload/{,*.}{global,local}.php'
+            realpath(__DIR__) . '/autoload/{,*.}{global,local}.php'
         ),
         'config_cache_key' => 'application.config.cache',
         'config_cache_enabled' => true,
