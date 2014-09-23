@@ -1,0 +1,50 @@
+/**
+ * zf-apigility styles/overrides
+ */
+@agBlue: #0c0c56;
+@agLightBlue: #4B70A2;
+@agGreen: #004000;
+@agBlueHighlight: #428BCA;
+
+body {
+    padding-top: 71px;
+}
+
+.navbar {
+  > .container-fluid {
+
+    .navbar-brand {
+      padding: 10px 15px;
+    }
+
+    .ag-navbar-collapse {
+      overflow: hidden;
+      width: 100%;
+
+      ul.navbar-nav {
+        z-index: 3;
+        float: none;
+        height: 100%;
+
+        > li {
+          min-width: 85px;
+          text-align: center;
+
+          > a {
+            min-height: 70px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.navbar-inverse {
+    background: @agBlue;
+}
+
+.navbar-fixed-top {
+    &.primary {
+
+    }
+}
