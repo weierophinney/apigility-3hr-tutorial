@@ -8,6 +8,7 @@ namespace ZF\Apigility\Admin;
 
 use Zend\Http\Header\GenericHeader;
 use Zend\Http\Header\GenericMultiHeader;
+use Zend\ModuleManager\ModuleManagerInterface;
 use Zend\Mvc\MvcEvent;
 use Zend\Mvc\Router\RouteMatch;
 use ZF\Configuration\ConfigResource;
@@ -33,6 +34,21 @@ class Module
      * @var \Zend\ServiceManager\ServiceLocatorInterface
      */
     protected $sm;
+
+    /**
+     * Ensure the UI module is loaded
+     *
+     * @param ModuleManagerInterface $modules
+     */
+    public function init(ModuleManagerInterface $modules)
+    {
+        $loaded = $modules->getLoadedModules();
+        if (isset($loaded['ZF\Apigility\Admin\Ui'])) {
+            return;
+        }
+
+        $modules->loadModule('ZF\Apigility\Admin\Ui');
+    }
 
     public function onBootstrap(MvcEvent $e)
     {
@@ -102,7 +118,7 @@ class Module
                 if (!$services->has('ZF\Configuration\ModuleUtils')
                     || !$services->has('ZF\Configuration\ConfigResourceFactory')
                     || !$services->has('ZF\Apigility\Admin\Model\ModuleModel')
-                ) {;
+                ) {
                     throw new ServiceNotCreatedException(
                         'ZF\Apigility\Admin\Model\AuthorizationModelFactory is missing one or more dependencies from ZF\Configuration'
                     );
@@ -736,7 +752,9 @@ class Module
 
     protected function getServiceType($service)
     {
-        if (strstr($service, '\\Rest\\')) {
+        if (strstr($service, '\\Rest\\')
+            || strstr($service, '-Rest-')
+        ) {
             return 'rest';
         }
         return 'rpc';
