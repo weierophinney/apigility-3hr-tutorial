@@ -8,8 +8,7 @@ user's borrowed books.
 
 ## Things to note:
 
-* The database already has the relevant tables to support OAuth2 and the
-  required adapter is setup for you.
+* The database is in /data/bookshelf.db. The PDO DSN is sqlite:full/path/to/filename
 * [Relevant docs](https://apigility.org/documentation/auth/authentication-oauth2#username-and-password-access)
   (we are a Confidential client).
 * A successful log in gives back a token.
