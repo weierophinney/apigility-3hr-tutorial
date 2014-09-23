@@ -160,4 +160,129 @@ return array(
             ),
         ),
     ),
+    'zf-content-validation' => array(
+        'Bookshelf\\V1\\Rest\\Users\\Controller' => array(
+            'input_filter' => 'Bookshelf\\V1\\Rest\\Users\\Validator',
+        ),
+        'Bookshelf\\V1\\Rest\\Books\\Controller' => array(
+            'input_filter' => 'Bookshelf\\V1\\Rest\\Books\\Validator',
+        ),
+    ),
+    'input_filter_specs' => array(
+        'Bookshelf\\V1\\Rest\\Users\\Validator' => array(
+            0 => array(
+                'name' => 'username',
+                'required' => true,
+                'filters' => array(),
+                'validators' => array(
+                    0 => array(
+                        'name' => 'Zend\\Validator\\EmailAddress',
+                        'options' => array(),
+                    ),
+                    1 => array(
+                        'name' => 'Zend\\Validator\\StringLength',
+                        'options' => array(
+                            'max' => '255',
+                        ),
+                    ),
+                ),
+                'description' => 'Username (their email address)',
+                'error_message' => 'Please provide a valid email address to use as the username.',
+                'allow_empty' => false,
+                'continue_if_empty' => false,
+            ),
+            1 => array(
+                'name' => 'password',
+                'required' => true,
+                'filters' => array(
+                    0 => array(
+                        'name' => 'Zend\\Filter\\StringTrim',
+                        'options' => array(),
+                    ),
+                ),
+                'validators' => array(),
+                'allow_empty' => false,
+                'continue_if_empty' => false,
+                'description' => 'Password to use for this user.',
+                'error_message' => 'Please provide a valid password of at least 8 characters in length.',
+            ),
+            2 => array(
+                'name' => 'name',
+                'required' => true,
+                'filters' => array(),
+                'validators' => array(
+                    0 => array(
+                        'name' => 'Zend\\Validator\\StringLength',
+                        'options' => array(
+                            'max' => '255',
+                        ),
+                    ),
+                ),
+                'allow_empty' => false,
+                'continue_if_empty' => false,
+                'description' => 'The user\'s full name.',
+                'error_message' => 'Please provide the user\'s name.',
+            ),
+        ),
+        'Bookshelf\\V1\\Rest\\Books\\Validator' => array(
+            0 => array(
+                'name' => 'title',
+                'required' => true,
+                'filters' => array(),
+                'validators' => array(
+                    0 => array(
+                        'name' => 'Zend\\Validator\\StringLength',
+                        'options' => array(
+                            'max' => '255',
+                        ),
+                    ),
+                ),
+                'description' => 'The title of the book.',
+                'error_message' => 'Please provide the book\'s title.',
+                'allow_empty' => false,
+                'continue_if_empty' => false,
+            ),
+            1 => array(
+                'name' => 'author',
+                'required' => true,
+                'filters' => array(
+                    0 => array(
+                        'name' => 'Zend\\Filter\\StringTrim',
+                        'options' => array(),
+                    ),
+                    1 => array(
+                        'name' => 'Zend\\Filter\\StripTags',
+                        'options' => array(),
+                    ),
+                ),
+                'validators' => array(
+                    0 => array(
+                        'name' => 'Zend\\Validator\\StringLength',
+                        'options' => array(
+                            'max' => '255',
+                        ),
+                    ),
+                ),
+                'description' => 'The book\'s author',
+                'error_message' => 'Please provide the author\'s name.',
+                'allow_empty' => false,
+                'continue_if_empty' => false,
+            ),
+            2 => array(
+                'name' => 'isbn',
+                'required' => true,
+                'filters' => array(),
+                'validators' => array(
+                    0 => array(
+                        'name' => 'Zend\\Validator\\Isbn',
+                        'options' => array(),
+                    ),
+                ),
+                'allow_empty' => false,
+                'continue_if_empty' => false,
+                'description' => 'The book\'s ISBN number.',
+                'error_message' => 'Please provide the book\'s ISBN number.',
+            ),
+        ),
+    ),
 );
