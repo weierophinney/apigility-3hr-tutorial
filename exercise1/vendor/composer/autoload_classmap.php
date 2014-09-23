@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'ZF\\ApiProblem\\Module' => $vendorDir . '/zfcampus/zf-api-problem/Module.php',
     'ZF\\Apigility\\Admin\\Module' => $vendorDir . '/zfcampus/zf-apigility-admin/Module.php',
+    'ZF\\Apigility\\Admin\\Ui\\Module' => $vendorDir . '/zfcampus/zf-apigility-admin-ui/Module.php',
     'ZF\\Apigility\\Documentation\\Module' => $vendorDir . '/zfcampus/zf-apigility-documentation/Module.php',
     'ZF\\Apigility\\Module' => $vendorDir . '/zfcampus/zf-apigility/Module.php',
     'ZF\\Apigility\\Provider\\Module' => $vendorDir . '/zfcampus/zf-apigility-provider/Module.php',
