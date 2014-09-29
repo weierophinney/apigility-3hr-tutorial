@@ -3,23 +3,17 @@
 This is the tutorial codebase for a half-day Apigility tutorial.
 
 
-## Running order
+## Exercises
 
-*Session 1*
+Each exercise is in its own folder.
 
-1. Welcome and demo of ping service (15 mins)
-2. Exercise 1: Ping (15 mins)
-3. Why Apigility (30 mins)
-4. Introduce worked example & demo creation of Users service (10 mins)
-5. Exercise 2: Books (20 mins)
 
-*Session 2*
+## PHP's built-in web server
 
-1. Quick walkthrough of exercise 2 (5 mins)
-2. Demonstration of validation (10 mins)
-3. Demonstration of documentation (5 mins)
-4. Exercise 3: Fields & documentation (15 mins)
-5. Demonstration of authentication in Apigility (15 mins)
-6. Exercise 4: Authentication (30 mins)
-7. Quick walkthrough of exercise 5 (5 mins)
-8. Wrap up (5 mins)
+You can use the built-in webserver from PHP 5.4.8 onwards:
+
+    cd path/to/install
+    php -S 0.0.0.0:8888 -t public public/index.php
+
+
+You can then visit the site at http://localhost:8888/
