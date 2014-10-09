@@ -16,5 +16,6 @@
 4. Exercise 3: Fields & documentation (15 mins)
 5. Demonstration of authentication in Apigility (15 mins)
 6. Exercise 4: Authentication (30 mins)
+   - Make sure you detail configuring oauth2 to use the "users" table
 7. Quick walkthrough of exercise 5 (5 mins)
 8. Wrap up (5 mins)
