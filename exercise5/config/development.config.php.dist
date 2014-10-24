@@ -7,7 +7,6 @@
 return array(
     // Development time modules
     'modules' => array(
-        'ZFTool',
         'ZF\Apigility\Admin',
         'ZF\Apigility\Welcome',
     ),
