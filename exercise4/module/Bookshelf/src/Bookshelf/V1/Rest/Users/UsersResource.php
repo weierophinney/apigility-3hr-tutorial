@@ -22,7 +22,7 @@ class UsersResource extends AbstractResourceListener
     public function create($data)
     {
         $inputFilter = $this->getInputFilter();
-        $data        = $this->getValues();
+        $data        = $inputFilter->getValues();
         return $this->mapper->create($data['username'], $data['password'], $data['name']);
     }
 

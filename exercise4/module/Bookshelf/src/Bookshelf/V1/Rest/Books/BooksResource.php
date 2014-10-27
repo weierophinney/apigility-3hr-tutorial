@@ -22,7 +22,7 @@ class BooksResource extends AbstractResourceListener
     public function create($data)
     {
         $inputFilter = $this->getInputFilter();
-        $data        = $this->getValues();
+        $data        = $inputFilter->getValues();
         return $this->mapper->create($data['author'], $data['title'], $data['isbn']);
     }
 

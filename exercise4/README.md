@@ -9,7 +9,7 @@ user's borrowed books.
 ## Things to note:
 
 * The database is in /data/bookshelf.db. The PDO DSN is sqlite:full/path/to/filename
-* You'll need to inform zf-oauth2 to use our users table. Edit the `config/autoload/user.global.php` file and:
+* You'll need to inform zf-oauth2 to use our users table. After creating the OAuth2 adapter, edit the `config/autoload/global.php` file and:
   - Add a "zf-oauth2" top-level key
   - Under it, add a "storage_settings" key
   - with a "user_table" subkey, pointing at "user".
@@ -21,4 +21,5 @@ user's borrowed books.
     * The client_secret is blank as we are using password grant type.
 * The resource has a `getIdentity()` method - you can check its type to see
   if the user is logged in.
-* `Bibliotheque\BookMapper` has a `fetchBorrowed($userId)` method.
+* Controllers can fetch the identity using `$this->getEvent()->getParam('ZF\MvcAuth\Identity')`
+* `Bibliotheque\Book\BookMapper` has a `fetchBorrowed($userId)` method.

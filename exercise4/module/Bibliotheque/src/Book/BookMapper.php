@@ -6,6 +6,7 @@ use DomainException;
 use Rhumsaa\Uuid\Uuid;
 use Zend\Db\TableGateway\TableGatewayInterface;
 use Zend\Paginator\Adapter\DbTableGateway as DbTableGatewayPaginator;
+use Zend\Paginator\Adapter\DbSelect as DbSelectPaginator;
 
 class BookMapper implements BookMapperInterface
 {

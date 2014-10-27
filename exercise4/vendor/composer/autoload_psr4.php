@@ -38,4 +38,5 @@ return array(
     'ZFTest\\Apigility\\' => array($vendorDir . '/zfcampus/zf-apigility/test'),
     'ZFTest\\ApiProblem\\' => array($vendorDir . '/zfcampus/zf-api-problem/test'),
     'Seld\\JsonLint\\' => array($vendorDir . '/seld/jsonlint/src/Seld/JsonLint'),
+    'Rhumsaa\\Uuid\\' => array($vendorDir . '/rhumsaa/uuid/src'),
 );
