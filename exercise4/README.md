@@ -9,6 +9,10 @@ user's borrowed books.
 ## Things to note:
 
 * The database is in /data/bookshelf.db. The PDO DSN is sqlite:full/path/to/filename
+* You'll need to inform zf-oauth2 to use our users table. Edit the `config/autoload/user.global.php` file and:
+  - Add a "zf-oauth2" top-level key
+  - Under it, add a "storage_settings" key
+  - with a "user_table" subkey, pointing at "user".
 * [Relevant docs](https://apigility.org/documentation/auth/authentication-oauth2#username-and-password-access)
   (we are a Confidential client).
 * A successful log in gives back a token.
