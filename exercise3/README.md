@@ -26,4 +26,4 @@ Bonus points for documenting them too!
 * Book fields:
     * Title has a maximum of 255 characters
     * Author has a maximum of 255 characters and may not contain HTML
-    * isbn is a 13 character ISBN
+    * isbn is a 13 character ISBN (the type option will be "13").
