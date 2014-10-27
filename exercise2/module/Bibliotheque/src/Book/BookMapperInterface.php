@@ -11,4 +11,6 @@ interface BookMapperInterface
     public function fetchAll();
 
     public function delete($id);
+
+    public function update($bookId, $data);
 }

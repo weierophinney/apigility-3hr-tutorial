@@ -7,8 +7,8 @@ Bonus points for creating, updating & deleting a book.
 
 ## Things to note:
 
-* The Entity Identifier Name for is user_id.
-* The Entity is `Bibliotheque\Book\BookEntity`
-* The Collection is `Bibliotheque\Book\BookCollection`.
-* Inject `Bibliotheque\Book\BookMapper` into the `BooksResource` class (via the `BookResourceFactory`).
+* The Entity Identifier Name is `book_id`.
+* The Entity Class is `Bibliotheque\Book\BookEntity`
+* The Collection Class is `Bibliotheque\Book\BookCollection`.
+* Inject the `Bibliotheque\Book\BookMapper` service into the `BooksResource` class (via the `BookResourceFactory`).
 * The `Bibliotheque\Book\BookMapperInterface` shows you what you can do with the mapper.
